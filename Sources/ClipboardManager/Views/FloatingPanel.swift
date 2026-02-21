@@ -5,7 +5,7 @@ final class FloatingPanel: NSPanel {
     init(contentView: NSView) {
         super.init(
             contentRect: .zero,
-            styleMask: [.nonactivatingPanel, .fullSizeContentView, .borderless],
+            styleMask: [.nonactivatingPanel, .titled, .fullSizeContentView, .resizable],
             backing: .buffered,
             defer: false
         )
@@ -17,7 +17,7 @@ final class FloatingPanel: NSPanel {
         self.hasShadow = true
         self.titleVisibility = .hidden
         self.titlebarAppearsTransparent = true
-        self.isMovableByWindowBackground = false
+        self.isMovableByWindowBackground = true
         self.hidesOnDeactivate = false
         self.animationBehavior = .utilityWindow
         self.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]

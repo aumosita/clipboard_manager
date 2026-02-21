@@ -86,9 +86,6 @@ struct ClipboardListView: View {
                                         onTogglePin: { togglePin(item) },
                                         onDelete: { deleteItem(item) }
                                     )
-                                    .onHover { isHovering in
-                                        updateSelectionOnHover(index: index, isHovering: isHovering)
-                                    }
                                     .id(item.id)
                                 }
 
@@ -118,9 +115,6 @@ struct ClipboardListView: View {
                                         onTogglePin: { togglePin(item) },
                                         onDelete: { deleteItem(item) }
                                     )
-                                    .onHover { isHovering in
-                                        updateSelectionOnHover(index: globalIndex, isHovering: isHovering)
-                                    }
                                     .id(item.id)
                                 }
                             }
@@ -157,6 +151,7 @@ struct ClipboardListView: View {
         .focusable()
         .focused($isKeyboardFocused)
         .onAppear {
+            selectMostRecentItem()
             focusList()
         }
         .onChange(of: allItems.count) { _, _ in
@@ -214,11 +209,6 @@ struct ClipboardListView: View {
         pasteItem(allItems[selectedIndex])
     }
 
-    private func updateSelectionOnHover(index: Int, isHovering: Bool) {
-        guard isHovering, index >= 0, index < allItems.count else { return }
-        selectedIndex = index
-    }
-
     private func clampSelection() {
         if allItems.isEmpty {
             selectedIndex = 0
@@ -232,6 +222,15 @@ struct ClipboardListView: View {
         DispatchQueue.main.async {
             isKeyboardFocused = true
         }
+    }
+
+    private func selectMostRecentItem() {
+        guard let mostRecent = allItems.max(by: { $0.timestamp < $1.timestamp }),
+              let index = allItems.firstIndex(where: { $0.id == mostRecent.id }) else {
+            selectedIndex = 0
+            return
+        }
+        selectedIndex = index
     }
 }
 
