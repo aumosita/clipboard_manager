@@ -3,6 +3,7 @@ import SwiftData
 
 struct ClipboardListView: View {
     @Environment(\.modelContext) private var modelContext
+    @FocusState private var isKeyboardFocused: Bool
 
     @Query(
         filter: #Predicate<ClipboardItem> { $0.isPinned },
@@ -35,7 +36,7 @@ struct ClipboardListView: View {
             HStack {
                 Image(systemName: "clipboard")
                     .font(.system(size: 14, weight: .semibold))
-                Text("클립보드 매니저")
+                Text("panel.title")
                     .font(.system(size: 14, weight: .semibold))
                 Spacer()
                 Text("\(recentItems.count)/100")
@@ -52,10 +53,10 @@ struct ClipboardListView: View {
                     Image(systemName: "clipboard")
                         .font(.system(size: 32))
                         .foregroundStyle(.tertiary)
-                    Text("클립보드 히스토리가 없습니다")
+                    Text("panel.empty.title")
                         .font(.system(size: 13))
                         .foregroundStyle(.secondary)
-                    Text("텍스트를 복사하면 여기에 표시됩니다")
+                    Text("panel.empty.subtitle")
                         .font(.system(size: 11))
                         .foregroundStyle(.tertiary)
                 }
@@ -68,7 +69,7 @@ struct ClipboardListView: View {
                             // Pinned section
                             if !pinnedItems.isEmpty {
                                 HStack {
-                                    Text("📌 고정됨")
+                                    Text("panel.section.pinned")
                                         .font(.system(size: 11, weight: .medium))
                                         .foregroundStyle(.secondary)
                                     Spacer()
@@ -85,6 +86,9 @@ struct ClipboardListView: View {
                                         onTogglePin: { togglePin(item) },
                                         onDelete: { deleteItem(item) }
                                     )
+                                    .onHover { isHovering in
+                                        updateSelectionOnHover(index: index, isHovering: isHovering)
+                                    }
                                     .id(item.id)
                                 }
 
@@ -96,7 +100,7 @@ struct ClipboardListView: View {
                             // Recent section
                             if !recentItems.isEmpty {
                                 HStack {
-                                    Text("📋 최근 항목")
+                                    Text("panel.section.recent")
                                         .font(.system(size: 11, weight: .medium))
                                         .foregroundStyle(.secondary)
                                     Spacer()
@@ -114,6 +118,9 @@ struct ClipboardListView: View {
                                         onTogglePin: { togglePin(item) },
                                         onDelete: { deleteItem(item) }
                                     )
+                                    .onHover { isHovering in
+                                        updateSelectionOnHover(index: globalIndex, isHovering: isHovering)
+                                    }
                                     .id(item.id)
                                 }
                             }
@@ -133,9 +140,9 @@ struct ClipboardListView: View {
 
             // Footer
             HStack {
-                Text("↑↓ 이동")
-                Text("↩ 붙여넣기")
-                Text("esc 닫기")
+                Text("panel.footer.move")
+                Text("panel.footer.paste")
+                Text("panel.footer.close")
             }
             .font(.system(size: 10))
             .foregroundStyle(.tertiary)
@@ -147,13 +154,23 @@ struct ClipboardListView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 12))
         )
         .clipShape(RoundedRectangle(cornerRadius: 12))
-        .onKeyPress(.upArrow) {
-            moveSelection(-1)
-            return .handled
+        .focusable()
+        .focused($isKeyboardFocused)
+        .onAppear {
+            focusList()
         }
-        .onKeyPress(.downArrow) {
-            moveSelection(1)
-            return .handled
+        .onChange(of: allItems.count) { _, _ in
+            clampSelection()
+        }
+        .onMoveCommand { direction in
+            switch direction {
+            case .up:
+                moveSelection(-1)
+            case .down:
+                moveSelection(1)
+            default:
+                break
+            }
         }
         .onKeyPress(.return) {
             pasteSelected()
@@ -195,6 +212,26 @@ struct ClipboardListView: View {
     private func pasteSelected() {
         guard !allItems.isEmpty, selectedIndex >= 0, selectedIndex < allItems.count else { return }
         pasteItem(allItems[selectedIndex])
+    }
+
+    private func updateSelectionOnHover(index: Int, isHovering: Bool) {
+        guard isHovering, index >= 0, index < allItems.count else { return }
+        selectedIndex = index
+    }
+
+    private func clampSelection() {
+        if allItems.isEmpty {
+            selectedIndex = 0
+        } else {
+            selectedIndex = min(selectedIndex, allItems.count - 1)
+        }
+        focusList()
+    }
+
+    private func focusList() {
+        DispatchQueue.main.async {
+            isKeyboardFocused = true
+        }
     }
 }
 

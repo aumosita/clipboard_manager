@@ -21,6 +21,8 @@ final class FloatingPanel: NSPanel {
         self.hidesOnDeactivate = false
         self.animationBehavior = .utilityWindow
         self.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+        self.acceptsMouseMovedEvents = true
+        self.becomesKeyOnlyIfNeeded = false
 
         self.contentView = contentView
     }
@@ -46,7 +48,8 @@ final class FloatingPanel: NSPanel {
         origin.y = max(screenFrame.minY, min(origin.y, screenFrame.maxY - size.height))
 
         setFrame(NSRect(origin: origin, size: size), display: true)
-        orderFrontRegardless()
+        makeKeyAndOrderFront(nil)
+        makeFirstResponder(contentView)
     }
 
     func dismiss() {
@@ -55,6 +58,7 @@ final class FloatingPanel: NSPanel {
 
     // Allow the panel to become key so it receives keyboard events
     override var canBecomeKey: Bool { true }
+    override var canBecomeMain: Bool { true }
 
     // Close on Escape
     override func keyDown(with event: NSEvent) {

@@ -1,0 +1,23 @@
+"menu.accessibility.required" = "접근성 권한 필요";
+"menu.open.systemSettings" = "시스템 설정 열기...";
+"menu.showHistory.hotkey" = "클립보드 히스토리 보기 (⌘⇧V)";
+"menu.launchAtLogin" = "로그인 시 자동 시작";
+"menu.quit" = "종료";
+
+"panel.title" = "클립보드 매니저";
+"panel.empty.title" = "클립보드 히스토리가 없습니다";
+"panel.empty.subtitle" = "텍스트를 복사하면 여기에 표시됩니다";
+"panel.section.pinned" = "고정됨";
+"panel.section.recent" = "최근 항목";
+"panel.footer.move" = "↑↓ 이동";
+"panel.footer.paste" = "↩ 붙여넣기";
+"panel.footer.close" = "esc 닫기";
+
+"row.help.unpin" = "고정 해제";
+"row.help.pin" = "고정";
+"row.help.delete" = "삭제";
+
+"accessibility.alert.title" = "접근성 권한이 필요합니다";
+"accessibility.alert.message" = "클립보드 매니저가 정상 동작하려면 접근성 권한이 필요합니다.\n\n⌘⇧V 글로벌 단축키와 붙여넣기 기능을 사용하려면:\n\n시스템 설정 > 개인정보 보호 및 보안 > 접근성\n에서 ClipboardManager를 허용해 주세요.";
+"accessibility.alert.openSystemSettings" = "시스템 설정 열기";
+"accessibility.alert.later" = "나중에";

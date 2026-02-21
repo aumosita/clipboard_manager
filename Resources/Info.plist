@@ -8,6 +8,15 @@
     <string>ClipboardManager</string>
     <key>CFBundleDisplayName</key>
     <string>Clipboard Manager</string>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>en</string>
+        <string>ko</string>
+        <string>fr</string>
+        <string>ja</string>
+    </array>
     <key>CFBundleExecutable</key>
     <string>ClipboardManager</string>
     <key>CFBundleVersion</key>

@@ -1,0 +1,23 @@
+"menu.accessibility.required" = "アクセシビリティ権限が必要です";
+"menu.open.systemSettings" = "システム設定を開く...";
+"menu.showHistory.hotkey" = "クリップボード履歴を表示 (⌘⇧V)";
+"menu.launchAtLogin" = "ログイン時に起動";
+"menu.quit" = "終了";
+
+"panel.title" = "クリップボードマネージャー";
+"panel.empty.title" = "クリップボード履歴がありません";
+"panel.empty.subtitle" = "テキストをコピーするとここに表示されます";
+"panel.section.pinned" = "ピン留め";
+"panel.section.recent" = "最近の項目";
+"panel.footer.move" = "↑↓ 移動";
+"panel.footer.paste" = "↩ 貼り付け";
+"panel.footer.close" = "esc 閉じる";
+
+"row.help.unpin" = "ピン留めを解除";
+"row.help.pin" = "ピン留め";
+"row.help.delete" = "削除";
+
+"accessibility.alert.title" = "アクセシビリティ権限が必要です";
+"accessibility.alert.message" = "クリップボードマネージャーを正しく動作させるには、アクセシビリティ権限が必要です。\n\nグローバルショートカット ⌘⇧V と貼り付け機能を使うには:\n\nシステム設定 > プライバシーとセキュリティ > アクセシビリティ で\nClipboardManager を許可してください。";
+"accessibility.alert.openSystemSettings" = "システム設定を開く";
+"accessibility.alert.later" = "後で";

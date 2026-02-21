@@ -112,29 +112,29 @@ struct ClipboardManagerApp: App {
     var body: some Scene {
         MenuBarExtra {
             if !appState.hasAccessibility {
-                Label("⚠️ 접근성 권한 필요", systemImage: "exclamationmark.triangle")
+                Label("menu.accessibility.required", systemImage: "exclamationmark.triangle")
 
-                Button("시스템 설정 열기...") {
+                Button("menu.open.systemSettings") {
                     AccessibilityChecker.openAccessibilitySettings()
                 }
 
                 Divider()
             }
 
-            Button("클립보드 히스토리 보기 (⌘⇧V)") {
+            Button("menu.showHistory.hotkey") {
                 appState.togglePanel()
             }
 
             Divider()
 
-            Toggle("로그인 시 자동 시작", isOn: Binding(
+            Toggle("menu.launchAtLogin", isOn: Binding(
                 get: { appState.isLaunchAtLogin },
                 set: { appState.toggleLaunchAtLogin($0) }
             ))
 
             Divider()
 
-            Button("종료") {
+            Button("menu.quit") {
                 NSApplication.shared.terminate(nil)
             }
             .keyboardShortcut("q")

@@ -1,0 +1,23 @@
+"menu.accessibility.required" = "Autorisation d’accessibilité requise";
+"menu.open.systemSettings" = "Ouvrir Réglages Système...";
+"menu.showHistory.hotkey" = "Afficher l’historique du presse-papiers (⌘⇧V)";
+"menu.launchAtLogin" = "Lancer à l’ouverture de session";
+"menu.quit" = "Quitter";
+
+"panel.title" = "Gestionnaire de presse-papiers";
+"panel.empty.title" = "Aucun historique du presse-papiers";
+"panel.empty.subtitle" = "Le texte copié apparaîtra ici";
+"panel.section.pinned" = "Épinglés";
+"panel.section.recent" = "Récents";
+"panel.footer.move" = "↑↓ Déplacer";
+"panel.footer.paste" = "↩ Coller";
+"panel.footer.close" = "esc Fermer";
+
+"row.help.unpin" = "Désépingler";
+"row.help.pin" = "Épingler";
+"row.help.delete" = "Supprimer";
+
+"accessibility.alert.title" = "Autorisation d’accessibilité requise";
+"accessibility.alert.message" = "Le Gestionnaire de presse-papiers a besoin de l’autorisation d’accessibilité pour fonctionner correctement.\n\nPour utiliser le raccourci global ⌘⇧V et la fonction de collage :\n\nAllez dans Réglages Système > Confidentialité et sécurité > Accessibilité,\npuis autorisez ClipboardManager.";
+"accessibility.alert.openSystemSettings" = "Ouvrir Réglages Système";
+"accessibility.alert.later" = "Plus tard";

@@ -25,6 +25,13 @@ cp "Resources/Info.plist" "${CONTENTS}/"
 # Copy app icon
 cp "Resources/AppIcon.icns" "${RESOURCES}/"
 
+# Copy localized strings (e.g. en.lproj, ko.lproj)
+for lproj in Resources/*.lproj; do
+    if [[ -d "${lproj}" ]]; then
+        cp -R "${lproj}" "${RESOURCES}/"
+    fi
+done
+
 # Copy entitlements and sign
 echo "🔏 Signing..."
 codesign --force --deep --sign - \

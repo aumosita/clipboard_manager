@@ -17,7 +17,10 @@ struct ClipboardRowView: View {
                     .foregroundStyle(item.isPinned ? .orange : .secondary)
             }
             .buttonStyle(.plain)
-            .help(item.isPinned ? "고정 해제" : "고정")
+            .help(item.isPinned
+                ? String(localized: "row.help.unpin", bundle: .main)
+                : String(localized: "row.help.pin", bundle: .main)
+            )
 
             // Text content — click to paste
             Button(action: onPaste) {
@@ -42,7 +45,7 @@ struct ClipboardRowView: View {
                     .foregroundStyle(.secondary)
             }
             .buttonStyle(.plain)
-            .help("삭제")
+            .help(String(localized: "row.help.delete", bundle: .main))
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 6)

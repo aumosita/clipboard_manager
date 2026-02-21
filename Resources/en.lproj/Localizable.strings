@@ -1,0 +1,23 @@
+"menu.accessibility.required" = "Accessibility permission required";
+"menu.open.systemSettings" = "Open System Settings...";
+"menu.showHistory.hotkey" = "Show Clipboard History (⌘⇧V)";
+"menu.launchAtLogin" = "Launch at Login";
+"menu.quit" = "Quit";
+
+"panel.title" = "Clipboard Manager";
+"panel.empty.title" = "No clipboard history yet";
+"panel.empty.subtitle" = "Copied text will appear here";
+"panel.section.pinned" = "Pinned";
+"panel.section.recent" = "Recent";
+"panel.footer.move" = "↑↓ Move";
+"panel.footer.paste" = "↩ Paste";
+"panel.footer.close" = "esc Close";
+
+"row.help.unpin" = "Unpin";
+"row.help.pin" = "Pin";
+"row.help.delete" = "Delete";
+
+"accessibility.alert.title" = "Accessibility permission needed";
+"accessibility.alert.message" = "Clipboard Manager needs Accessibility permission to work properly.\n\nTo use the global shortcut ⌘⇧V and paste feature:\n\nGo to System Settings > Privacy & Security > Accessibility\nand allow ClipboardManager.";
+"accessibility.alert.openSystemSettings" = "Open System Settings";
+"accessibility.alert.later" = "Later";
