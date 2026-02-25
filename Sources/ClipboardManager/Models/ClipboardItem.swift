@@ -16,13 +16,13 @@ final class ClipboardItem {
     var isPinned: Bool
 
     /// "text", "image", or "file" — stored as String for #Predicate compatibility
-    var contentTypeRaw: String
+    var contentTypeRaw: String = ClipboardContentType.text.rawValue
 
     /// Path to saved image file (relative to app's image storage directory)
-    var imagePath: String?
+    var imagePath: String? = nil
 
     /// JSON array of file URL strings, e.g. ["file:///path/to/file1", "file:///path/to/file2"]
-    var fileURLsJSON: String?
+    var fileURLsJSON: String? = nil
 
     var contentType: ClipboardContentType {
         get { ClipboardContentType(rawValue: contentTypeRaw) ?? .text }
