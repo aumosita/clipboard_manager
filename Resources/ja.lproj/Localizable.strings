@@ -6,7 +6,7 @@
 
 "panel.title" = "クリップボードマネージャー";
 "panel.empty.title" = "クリップボード履歴がありません";
-"panel.empty.subtitle" = "テキストをコピーするとここに表示されます";
+"panel.empty.subtitle" = "テキスト、画像、ファイルをコピーするとここに表示されます";
 "panel.section.pinned" = "ピン留め";
 "panel.section.recent" = "最近の項目";
 "panel.footer.move" = "↑↓ 移動";
@@ -16,6 +16,13 @@
 "row.help.unpin" = "ピン留めを解除";
 "row.help.pin" = "ピン留め";
 "row.help.delete" = "削除";
+
+"row.type.image" = "画像";
+"row.type.file" = "ファイル";
+"row.type.files" = "ファイル";
+"row.badge.image" = "画像";
+"row.badge.file" = "ファイル";
+"row.badge.files" = "ファイル";
 
 "accessibility.alert.title" = "アクセシビリティ権限が必要です";
 "accessibility.alert.message" = "クリップボードマネージャーを正しく動作させるには、アクセシビリティ権限が必要です。\n\nグローバルショートカット ⌘⇧V と貼り付け機能を使うには:\n\nシステム設定 > プライバシーとセキュリティ > アクセシビリティ で\nClipboardManager を許可してください。";

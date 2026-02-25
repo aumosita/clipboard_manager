@@ -6,7 +6,7 @@
 
 "panel.title" = "Gestionnaire de presse-papiers";
 "panel.empty.title" = "Aucun historique du presse-papiers";
-"panel.empty.subtitle" = "Le texte copié apparaîtra ici";
+"panel.empty.subtitle" = "Le texte, les images et les fichiers copiés apparaîtront ici";
 "panel.section.pinned" = "Épinglés";
 "panel.section.recent" = "Récents";
 "panel.footer.move" = "↑↓ Déplacer";
@@ -16,6 +16,13 @@
 "row.help.unpin" = "Désépingler";
 "row.help.pin" = "Épingler";
 "row.help.delete" = "Supprimer";
+
+"row.type.image" = "Image";
+"row.type.file" = "Fichier";
+"row.type.files" = "Fichiers";
+"row.badge.image" = "Image";
+"row.badge.file" = "Fichier";
+"row.badge.files" = "Fichiers";
 
 "accessibility.alert.title" = "Autorisation d’accessibilité requise";
 "accessibility.alert.message" = "Le Gestionnaire de presse-papiers a besoin de l’autorisation d’accessibilité pour fonctionner correctement.\n\nPour utiliser le raccourci global ⌘⇧V et la fonction de collage :\n\nAllez dans Réglages Système > Confidentialité et sécurité > Accessibilité,\npuis autorisez ClipboardManager.";

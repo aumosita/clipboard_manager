@@ -22,7 +22,7 @@ struct ClipboardListView: View {
     @State private var selectedIndex: Int = 0
 
     /// Called when user selects an item to paste
-    var onPaste: ((String) -> Void)?
+    var onPaste: ((ClipboardItem) -> Void)?
     /// Called when the panel should dismiss
     var onDismiss: (() -> Void)?
 
@@ -180,7 +180,7 @@ struct ClipboardListView: View {
     // MARK: - Actions
 
     private func pasteItem(_ item: ClipboardItem) {
-        onPaste?(item.content)
+        onPaste?(item)
     }
 
     private func togglePin(_ item: ClipboardItem) {
@@ -189,6 +189,10 @@ struct ClipboardListView: View {
     }
 
     private func deleteItem(_ item: ClipboardItem) {
+        // Clean up associated image file
+        if let imagePath = item.imagePath {
+            ImageStorageService.shared.delete(path: imagePath)
+        }
         modelContext.delete(item)
         try? modelContext.save()
         // Adjust selection if needed

@@ -6,7 +6,7 @@
 
 "panel.title" = "Clipboard Manager";
 "panel.empty.title" = "No clipboard history yet";
-"panel.empty.subtitle" = "Copied text will appear here";
+"panel.empty.subtitle" = "Copied text, images, and files will appear here";
 "panel.section.pinned" = "Pinned";
 "panel.section.recent" = "Recent";
 "panel.footer.move" = "↑↓ Move";
@@ -16,6 +16,13 @@
 "row.help.unpin" = "Unpin";
 "row.help.pin" = "Pin";
 "row.help.delete" = "Delete";
+
+"row.type.image" = "Image";
+"row.type.file" = "File";
+"row.type.files" = "Files";
+"row.badge.image" = "Image";
+"row.badge.file" = "File";
+"row.badge.files" = "Files";
 
 "accessibility.alert.title" = "Accessibility permission needed";
 "accessibility.alert.message" = "Clipboard Manager needs Accessibility permission to work properly.\n\nTo use the global shortcut ⌘⇧V and paste feature:\n\nGo to System Settings > Privacy & Security > Accessibility\nand allow ClipboardManager.";

@@ -6,7 +6,7 @@
 
 "panel.title" = "클립보드 매니저";
 "panel.empty.title" = "클립보드 히스토리가 없습니다";
-"panel.empty.subtitle" = "텍스트를 복사하면 여기에 표시됩니다";
+"panel.empty.subtitle" = "텍스트, 이미지, 파일을 복사하면 여기에 표시됩니다";
 "panel.section.pinned" = "고정됨";
 "panel.section.recent" = "최근 항목";
 "panel.footer.move" = "↑↓ 이동";
@@ -16,6 +16,13 @@
 "row.help.unpin" = "고정 해제";
 "row.help.pin" = "고정";
 "row.help.delete" = "삭제";
+
+"row.type.image" = "이미지";
+"row.type.file" = "파일";
+"row.type.files" = "파일";
+"row.badge.image" = "이미지";
+"row.badge.file" = "파일";
+"row.badge.files" = "파일";
 
 "accessibility.alert.title" = "접근성 권한이 필요합니다";
 "accessibility.alert.message" = "클립보드 매니저가 정상 동작하려면 접근성 권한이 필요합니다.\n\n⌘⇧V 글로벌 단축키와 붙여넣기 기능을 사용하려면:\n\n시스템 설정 > 개인정보 보호 및 보안 > 접근성\n에서 ClipboardManager를 허용해 주세요.";

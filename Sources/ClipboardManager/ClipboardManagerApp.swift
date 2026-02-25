@@ -17,7 +17,13 @@ final class AppState {
 
     init() {
         do {
-            modelContainer = try ModelContainer(for: ClipboardItem.self)
+            let schema = Schema([ClipboardItem.self])
+            let config = ModelConfiguration(schema: schema)
+            modelContainer = try ModelContainer(
+                for: schema,
+                migrationPlan: nil,
+                configurations: [config]
+            )
         } catch {
             fatalError("Failed to create ModelContainer: \(error)")
         }
@@ -68,10 +74,10 @@ final class AppState {
         }
 
         let listView = ClipboardListView(
-            onPaste: { [weak self] text in
+            onPaste: { [weak self] item in
                 self?.dismissPanel()
-                self?.clipboardMonitor?.ignoreNextContent = text
-                PasteService.paste(text)
+                self?.clipboardMonitor?.ignoreNextChange = true
+                PasteService.paste(item)
             },
             onDismiss: { [weak self] in
                 self?.dismissPanel()
